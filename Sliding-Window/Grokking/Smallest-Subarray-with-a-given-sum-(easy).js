@@ -48,3 +48,5 @@ const smallest_subarray_with_given_sum = function(s, arr){
 console.log(smallest_subarray_with_given_sum(7, [2, 1, 5, 2, 3, 2]));
 console.log(smallest_subarray_with_given_sum(7, [2, 1, 5, 2, 8]));
 console.log(smallest_subarray_with_given_sum(8, [3, 4, 1, 1, 6]));
+
+// node Smallest-Subarray-with-a-given-sum-\(easy\).js
