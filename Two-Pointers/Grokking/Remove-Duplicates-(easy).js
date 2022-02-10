@@ -13,7 +13,24 @@
 */
 
 const remove_duplicates = function(arr) {
-    // 2 pointers
+
+    // Array left-shift approach
+    // Its removing in place since after the shift and new array length returned,
+    // its like the rest of the array past the length doesn't count
+    var end = 1;
+    var nonDups = 1;
+    while(end < arr.length){
+        if(arr[nonDups-1] != arr[end]){
+            // if not equal, make next array elem equal to the new nonduplicated value
+            arr[nonDups] = arr[end]
+            nonDups++;
+        } 
+        end++
+    }
+    return nonDups;
+
+
+    // Initial approach which gets the correct size output, but its not "removing in place"
     // var start = 0;
     // var end = start + 1;
     // var nonDups = 1;
@@ -27,22 +44,9 @@ const remove_duplicates = function(arr) {
     //         end++
     //     }
     // }
-
-    // Array left-shift approach (given answer)
-    var end = 1;
-    var nonDups = 1;
-    while(end < arr.length){
-        if(arr[nonDups-1] != arr[end]){
-            // if not equal, make next array elem equal to the new nonduplicated value
-            arr[nonDups] = arr[end]
-            nonDups++;
-        } 
-        end++
-    }
-    return nonDups;
 }
 
-// Easy answer with sets (kinda defeats the purpose of 2 pointers though)
+// Easy way to get non-dup size with sets (but there's no "removing in place")
 const remove_duplicates_set = function(arr) {
     // 2 pointers at both ends, loop until they meet in middle
     var set = new Set(arr);
