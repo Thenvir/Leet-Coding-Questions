@@ -1,9 +1,9 @@
-/*  Given the head of a Singly LinkedList, 
-    write a function to determine if the LinkedList has a cycle in it or not.
+/*  Given the head of a Singly LinkedList that contains a cycle, 
+     write a function to find the starting node of the cycle.
 */
 import intNode from '../intNode';
 
-const has_cycle = function(head: intNode) { 
+const find_cycle_start = function(head: intNode): intNode { 
     let slowHead: intNode = head;
     let fastHead: intNode = head;
 
@@ -11,12 +11,12 @@ const has_cycle = function(head: intNode) { 
     while(fastHead != null && fastHead.next != null){
         slowHead = slowHead.next;
         fastHead = fastHead.next.next;
-        if(slowHead == fastHead) return true;
+        if(slowHead == fastHead) return fastHead;
     }
-    return false;
+    return head;
 }  
 
-var head = new intNode(1)
+var head: intNode = new intNode(1)
 head.next = new intNode(2)
 head.next.next = new intNode(3)
 head.next.next.next = new intNode(4)
@@ -26,12 +26,14 @@ head.next.next.next.next.next = new intNode(6)
 console.log('LIST INITIALLY: ')
 head.printList(head);
 
-console.log(`LinkedList has cycle: ${has_cycle(head)}`) 
-
 head.next.next.next.next.next.next = head.next.next
-console.log(`LinkedList has cycle: ${has_cycle(head)} -- SHOULD BE TRUE`) 
+console.log(`LinkedList cycle start: ${find_cycle_start(head).value} -- SHOULD BE 3`) 
 
 head.next.next.next.next.next.next = head.next.next.next
-console.log(`LinkedList has cycle: ${has_cycle(head)} -- SHOULD BE TRUE`)
+console.log(`LinkedList cycle start: ${find_cycle_start(head).value} -- SHOULD BE 4`) 
 
-// ts-node 1-LinkedList-Cycle-\(easy\).ts
+head.next.next.next.next.next.next = head
+console.log(`LinkedList cycle start: ${find_cycle_start(head).value} -- SHOULD BE 1`)
+
+
+// ts-node 2-Start-of-LinkedList-Cycle-\(medium\).tss
