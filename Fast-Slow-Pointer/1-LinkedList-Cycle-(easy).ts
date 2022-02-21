@@ -26,6 +26,7 @@ head.next.next.next.next.next = new intNode(6)
 console.log('LIST INITIALLY: ')
 head.printList(head);
 
+console.log("\nTime complexity: O(n) to loop through the entire list \nSpace complexity: O(1), since no extra space is used");
 console.log(`LinkedList has cycle: ${has_cycle(head)}`) 
 
 head.next.next.next.next.next.next = head.next.next

@@ -38,6 +38,7 @@ console.log('LIST INITIALLY: ')
 head.printList(head);
 
 head.next.next.next.next.next.next = head.next.next
+console.log("\nTime complexity: O(n) to loop through the entire list multiple times \nSpace complexity: O(1), since no extra space is used, only few pointers are used");
 console.log(`LinkedList cycle start: ${find_cycle_start(head).value} -- SHOULD BE 3`) 
 
 head.next.next.next.next.next.next = head.next.next.next
