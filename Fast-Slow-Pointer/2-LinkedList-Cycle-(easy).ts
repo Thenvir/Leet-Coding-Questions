@@ -35,4 +35,4 @@ console.log(`LinkedList has cycle: ${has_cycle(head)} -- SHOULD BE TRUE`) 
 head.next.next.next.next.next.next = head.next.next.next
 console.log(`LinkedList has cycle: ${has_cycle(head)} -- SHOULD BE TRUE`)
 
-// ts-node 1-LinkedList-Cycle-\(easy\).ts
+// ts-node 2-LinkedList-Cycle-\(easy\).ts

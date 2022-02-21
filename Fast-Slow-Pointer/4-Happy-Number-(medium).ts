@@ -61,4 +61,4 @@ console.log("\nTime complexity: Difficult to determine, needs a fancy math proof
 console.log(`${find_happy_number(23)} -- SHOULD BE TRUE`);
 console.log(`${find_happy_number(12)} -- SHOULD BE FALSE`);
 
-// ts-node 3-Happy-Number-\(medium\).ts
+// ts-node 4-Happy-Number-\(medium\).ts

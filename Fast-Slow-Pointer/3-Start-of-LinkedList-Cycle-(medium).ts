@@ -53,4 +53,4 @@ console.log(`LinkedList cycle start: ${find_cycle_start(head).value} -- SHOUL
 // 3, 2
 // 4, 4
 
-// ts-node 2-Start-of-LinkedList-Cycle-\(medium\).tss
+// ts-node 3-Start-of-LinkedList-Cycle-\(medium\).tss
