@@ -7,13 +7,24 @@ const find_cycle_start = function(head: intNode): intNode { 
     let slowHead: intNode = head;
     let fastHead: intNode = head;
 
-    // must check fastHead.next for null, since otherwise you can't do the .next.next jump on a null
+    // key: distance from the node where slow & fast meet to the start cycle node = distance from head to start cycle node
     while(fastHead != null && fastHead.next != null){
         slowHead = slowHead.next;
         fastHead = fastHead.next.next;
-        if(slowHead == fastHead) return fastHead;
+
+        // slow and fast met
+        if(slowHead == fastHead){
+            // start from the head and increment, while fast also increments back to the start cycle node
+            // when they meet again, thats the start cycle node
+            slowHead = head;
+            while(slowHead != fastHead){
+                fastHead = fastHead.next;
+                slowHead = slowHead.next;
+            }
+            return slowHead;
+        }
     }
-    return head;
+    return null;
 }  
 
 var head: intNode = new intNode(1)
@@ -35,5 +46,10 @@ console.log(`LinkedList cycle start: ${find_cycle_start(head).value} -- SHOUL
 head.next.next.next.next.next.next = head
 console.log(`LinkedList cycle start: ${find_cycle_start(head).value} -- SHOULD BE 1`)
 
+
+// 1, 2
+// 2, 4
+// 3, 2
+// 4, 4
 
 // ts-node 2-Start-of-LinkedList-Cycle-\(medium\).tss
