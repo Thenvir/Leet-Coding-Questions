@@ -47,6 +47,7 @@ let result: string = "";
 for(var i=0; i < merged_intervals.length; i++) {  
     result += merged_intervals[i].get_interval() + " ";
 }
+console.log("\nTime complexity: O(nlogn) to loop through the list (n) and sort it (logn) \nSpace complexity: O(n) since O(n) space is needed for sorting");
 console.log(`Merged intervals: ${result}`)  
 
 merged_intervals = merge([new Interval(6, 7), new Interval(2, 4), new Interval(5, 9)]);
