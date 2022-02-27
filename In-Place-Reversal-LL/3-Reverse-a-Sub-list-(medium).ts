@@ -5,20 +5,6 @@
 import intNode from '../intNode';
 
 const reverse_sub_list = function(head: intNode, p: number, q: number): intNode {
-
-    // let before = null;
-    // let after = null;
-    // let prev = null;
-    // let headCopy = head;
-
-    // while(headCopy != null){
-    //     let next = headCopy.next;
-    //     headCopy.next = prev;
-    //     prev = headCopy;
-    //     headCopy = next;
-    // }
-    // return prev;
-
     // edge case, not needed but saves work anyways
     if(p === q) return head;
 
@@ -70,3 +56,5 @@ head.printList(head);
 console.log(`REVERSE LIST:`);
 head = reverse_sub_list(head, 2, 4);
 head.printList(head);
+
+// ts-node 3-Reverse-a-Sub-list-\(medium\).ts
