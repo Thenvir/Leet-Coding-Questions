@@ -18,16 +18,16 @@ const remove_duplicates = function(arr) {
     // Its removing in place since after the shift and new array length returned,
     // its like the rest of the array past the length doesn't count
     var end = 1;
-    var nonDups = 1;
+    var start = 1;
     while(end < arr.length){
-        if(arr[nonDups-1] != arr[end]){
+        if(arr[start-1] != arr[end]){
             // if not equal, make next array elem equal to the new nonduplicated value
-            arr[nonDups] = arr[end]
-            nonDups++;
+            arr[start] = arr[end]
+            start++;
         } 
         end++
     }
-    return nonDups;
+    return start;
 
 
     // Initial approach which gets the correct size output, but its not "removing in place"
