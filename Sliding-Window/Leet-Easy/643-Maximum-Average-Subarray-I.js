@@ -15,29 +15,23 @@
 
     var findMaxAverage = function(nums, k) {
 
-        // To find the max average, find the max within the window
-
-        let max = Number.NEGATIVE_INFINITY
-        let windowStart = 0
-        let windowSum = 0
+        let max = Number.NEGATIVE_INFINITY;
         
-        for (let windowEnd = 0; windowEnd < nums.length; windowEnd++) {
-            // running sum of elements within window
-            windowSum += nums[windowEnd]
-            
-            //slide the window if the end is greater than k 
-            // k-1 since it window starts at 0 index
-            if (windowEnd >= k - 1) {
-                //calculate if new sum or previous sum is bigger
-                max = Math.max(max, windowSum)
-                //subtract the element going out (start of the window)
-                windowSum -= nums[windowStart]
-                //slide window ahead
-                windowStart += 1
+        let start = 0;
+        let sum = 0;
+
+        for(let end=0; end<nums.length; ++end){
+
+            let currNum = nums[end];
+
+            if((end - start + 1) > k){
+                sum -= nums[start];
+                start++;
             }
+            sum += currNum;
+            max = Math.max(max, (sum/k));
         }
-        //return the average
-        return max / k
+        return max;
     };
     
     console.log(findMaxAverage([1,12,-5,-6,50,3], 4));
